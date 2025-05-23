@@ -46,7 +46,7 @@ pipeline {
                 sh '''
                     docker stop react-todo-container || true
                     docker rm react-todo-container || true
-                    docker run -d --name react-todo-container -p 3001:3000 $DOCKER_REGISTRY/$IMAGE_NAME
+                    docker run -d --name react-todo-container -p 3001:80 $DOCKER_REGISTRY/$IMAGE_NAME
                 '''
             }
         }
