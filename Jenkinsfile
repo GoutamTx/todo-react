@@ -46,7 +46,7 @@ pipeline {
                 sh '''
                     docker stop fitness-container || true
                     docker rm fitness-container || true
-                    docker run -d --name fitness-container -p 80:80 $DOCKER_REGISTRY/$IMAGE_NAME
+                    docker run -d --name fitness-container -p 3000:3000 $DOCKER_REGISTRY/$IMAGE_NAME
                 '''
             }
         }
