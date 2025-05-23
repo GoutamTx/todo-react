@@ -44,9 +44,9 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 sh '''
-                    docker stop fitness-container || true
-                    docker rm fitness-container || true
-                    docker run -d --name fitness-container -p 3000:3000 $DOCKER_REGISTRY/$IMAGE_NAME
+                    docker stop react-todo-container || true
+                    docker rm react-todo-container || true
+                    docker run -d --name react-todo-container -p 3000:3000 $DOCKER_REGISTRY/$IMAGE_NAME
                 '''
             }
         }
