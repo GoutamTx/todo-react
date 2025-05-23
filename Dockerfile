@@ -3,13 +3,12 @@ FROM node:18 AS builder
 
 # Set working directory
 WORKDIR /app
-
+COPY package*.json .
 # Copy project files
-COPY . .
 
 # Install dependencies
 RUN npm install --legacy-peer-deps
-
+COPY . .
 # Build the app
 RUN npm run build
 
