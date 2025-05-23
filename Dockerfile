@@ -7,7 +7,6 @@ WORKDIR /app
 
 # Install dependencies
 COPY . .
-RUN npm install -g yarn
 RUN yarn install --frozen-lockfile
 RUN yarn build
 
@@ -15,7 +14,7 @@ RUN yarn build
 FROM nginx:stable-alpine
 
 # Copy built files to Nginx HTML folder
-COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=builder /app/dist /usr/share/nginx/html
 
 # Remove default Nginx config
 RUN rm /etc/nginx/conf.d/default.conf
