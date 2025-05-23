@@ -3,7 +3,6 @@ FROM node:18 AS builder
 
 # Set working directory
 WORKDIR /app
-COPY package*.json .
 # Copy project files
 
 # Install dependencies
