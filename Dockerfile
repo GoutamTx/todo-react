@@ -7,10 +7,9 @@ COPY package*.json .
 # Copy project files
 
 # Install dependencies
-RUN npm install --legacy-peer-deps
 COPY . .
-# Build the app
-RUN npm run build
+RUN yarn install --frozen-lockfile
+RUN yarn build
 
 # Stage 2: Serve with Nginx
 FROM nginx:stable-alpine
