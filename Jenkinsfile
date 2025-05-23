@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                checkout scm
+                git branch: 'main', url: 'https://github.com/GoutamTx/todo-react.git'
             }
         }
 
@@ -44,9 +44,9 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 sh '''
-                    docker stop react-todo-container || true
-                    docker rm react-todo-container || true
-                    docker run -d --name react-todo-container -p 80:80 $DOCKER_REGISTRY/$IMAGE_NAME
+                    docker stop react-todo || true
+                    docker rm react-todo || true
+                    docker run -d --name react-todo -p 80:80 $DOCKER_REGISTRY/$IMAGE_NAME
                 '''
             }
         }
